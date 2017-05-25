@@ -1,2 +1,12 @@
 <!--pages/read/index.wxml-->
-<text>pages/read/index.wxml</text>
+<scroll-view class="container" scroll-y="true" bindscroll="scroll" scroll-top="{{page.scrollTop}}">
+<view class="box">
+    <view wx:if="{{chapter.id == 0}}" class="box-body-center"> {{chapter.conter}} </view>
+    <view class="box-body" wx:else> {{chapter.conter}} </view>
+  </view>
+</scroll-view>
+<view class="navigation">
+  <navigator class="lastpage">上一章</navigator>
+  <navigator class="catalog">目录</navigator>
+  <navigator class="nextpage">下一章</navigator>
+</view>

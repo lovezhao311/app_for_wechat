@@ -30,6 +30,7 @@ page{
   padding: 20rpx;
   background-color: #fff;
   margin-bottom: 20rpx;
+  box-sizing:border-box;
 }
 .box-header{
   height: 40rpx;

@@ -1,7 +1,6 @@
 {
   "pages":[
     "pages/book/index",
-    "pages/index/index",
     "pages/read/index"
   ],
   "window":{

@@ -1,1 +1,27 @@
 /* pages/read/index.wxss */
+.box{
+  margin-bottom: 0rpx;
+  padding-bottom: 0rpx; 
+  padding-top: 0rpx; 
+  min-height: 100%;
+}
+.box-title{
+  font-size: 28rpx;
+  text-align: center;
+}
+.box .box-body{
+  min-height:100rpx; 
+  padding-top: 0rpx; 
+}
+.box .box-body-center{
+  box-sizing: border-box;
+  padding-top: 50%;
+  text-align: center;
+  height: 100%;
+}
+.navigation > navigator{
+  width: 33%;
+  display: inline-block;
+  text-align: center;
+  line-height: 60rpx;
+}

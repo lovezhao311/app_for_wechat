@@ -15,7 +15,7 @@ class logs extends Service{
     logs.unshift(record);
     this.setStorage({
       key:"history",
-      value: logs
+      data: logs
     }).then(function(){
     }).catch(function(){  
     });
@@ -41,7 +41,7 @@ class logs extends Service{
     };
     this.setStorage({
       key: key,
-      value: record
+      data: record
     }).then(function () {
     }).catch(function () {
     });
@@ -57,6 +57,7 @@ class logs extends Service{
     } catch (e) {
       
     }
+    return false;
   }
 
 }

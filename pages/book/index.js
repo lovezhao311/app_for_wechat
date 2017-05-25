@@ -23,20 +23,18 @@ Page({
   },
   // 页面加载
   onLoad(option){
+    App.Logs.setNavigationBarTitle({
+      "title": "加载中.."
+    });
     this.setData({
       "book.id":option.id
     });
-    // 获取书籍数据
-    // code ....
-    // 获取书籍阅读情况
   },
   // 页面显示
   onShow() {
     this.setData({
       "book.read": App.Logs.get_book_history(this.data.id)
     });
-
-    App.Logs.launch();
 
     // App.Request.bookList({
     //   id: this.data.book.id

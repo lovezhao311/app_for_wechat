@@ -1,66 +1,45 @@
 // pages/read/index.js
+const App = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    chapter:{
+      id:0,
+      book_id:0,
+      name:"加载中...",
+      conter:"加载中..."
+    },
+    page:{
+      scrollTop:0
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  // 页面加载
+  onLoad(option) {
+    App.Logs.setNavigationBarTitle({
+      "title":"加载中.."
+    });
   },
+  // 页面显示
+  onShow() {
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+    // App.Request.chapter({
+
+    // }).than(data => {
+
+    // }).catch(data => {
+
+    // });
+
+    var page = App.Logs.get_book_history(this.data.chapter.book_id);
+    if (page !== false && page.chapter_id == this.data.chapter.id){
+      this.setData({
+        "page.scrollTop": page.scroll_top
+      });
+    }else{
+      App.Logs.book_history(this.data.chapter.book_id, this.data.chapter.id, 0);
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  // 滚动 
+  scroll(e){
+    App.Logs.book_history(this.data.chapter.book_id, this.data.chapter.id, e.detail.scrollTop);
   }
-})
+});

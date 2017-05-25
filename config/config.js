@@ -1,3 +1,3 @@
 export default {
-    basePath: 'https://api.skyvow.cn/'
+    basePath: 'http://api.luffybook.com/'
 }
