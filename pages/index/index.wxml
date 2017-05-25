@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<import src="/template/footer.wxml"/>
+<import src="/template/book_list.wxml"/>
+<import src="/template/banner.wxml"/>
+
+<scroll-view class="container" scroll-y="true">
+
+  <template is="banner" data="{{...banner}}"/>
+
+  <view class="box">
+    <view class="box-header">
+      <view class="title">畅销精选</view>
+      <view class="more">更多 > </view>
+    </view>
+    <template is="book_list" data="{{...best}}"/>
+  </view>
+
+  <view class="box">
+    <view class="box-header">
+      <view class="title">主编力荐</view>
+      <view class="more">更多 > </view>
+    </view>
+    <template is="book_list" data="{{...new}}"/>
+  </view>
+
+  <view class="box">
+    <view class="box-header">
+      <view class="title">新书强推</view>
+      <view class="more">更多 > </view>
+    </view>
+    <template is="book_list" data="{{...recomm}}"/>
+  </view>
+
+  <view class="box">
+    <view class="box-header">
+      <view class="title">经典完本</view>
+      <view class="more">更多 > </view>
+    </view>
+    <template is="book_list" data="{{...end}}"/>
+  </view>
+
+</scroll-view>
+
+<template is="footer"/>

@@ -1,0 +1,25 @@
+<!-- 导航 -->
+<template name="footer">
+<view class="navigation flex-wrp">
+  <view class="item">
+    <navigator url="" class="this" hover-class="none">
+      <text class="wx-iconfont wx-index"></text>
+    </navigator>
+  </view>
+  <view class="item">
+    <navigator url="" hover-class="none">
+      <text class="wx-iconfont wx-jingpin"></text>
+    </navigator>
+  </view>
+  <view class="item">
+    <navigator url="" hover-class="none">
+      <text class="wx-iconfont wx-faxian"></text>
+    </navigator>
+  </view>
+  <view class="item">
+    <navigator url="" hover-class="none">
+      <text class="wx-iconfont wx-wo"></text>
+    </navigator>
+  </view>
+</view>
+</template>

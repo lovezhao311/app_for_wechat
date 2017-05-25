@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/book/index",
+    "pages/index/index",
+    "pages/read/index"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle":"black"
+  }
+}

@@ -1,0 +1,51 @@
+<!--pages/book/index.wxml-->
+<scroll-view class="container" scroll-y="true">
+  <view class="header-top">
+    <view class="image">
+      <image mode="widthFix" src="../../images/150.jpg"></image>
+    </view>
+    <view class="desc">
+      <view class="header"><text>{{book.name}}</text></view>
+      <view class="author">{{book.author_name}}</view>
+      <view class="last_update">连载至: <text>{{book.last_chapter.name}}</text></view>
+      <view class="word">{{book.word_count}} 字</view>
+      <view class="read" wx:if="{{book.read.name}}">已读至: <text>{{book.read.name}}</text></view>
+      <view wx:else>未读</view>
+      <view class="tags">
+        <block wx:for="{{book.tag}}">
+        <text class="footer-right-tag">{{item.name}}</text>
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-header">
+      <view class="title">书籍简介</view>
+    </view>
+    <view class="box-body">
+      {{book.remark}}
+    </view>
+  </view>
+
+  <view class="box">
+    <view class="box-header">
+      <view class="title">书籍列表</view>
+      <view class="more" bindtap="chapter_order">倒序</view>
+    </view>
+    <view class="chapter_list">
+    <block wx:for="{{book.chpaters}}">
+      <navigator class="read" url="/pages/read/index?book_id={{book.id}}&type=chapter&chapter_id={{item.id}}">
+      <view class="item">
+        <view class="title">{{item.name}}</view>
+        <view class="time">{{item.create_time}}</view>
+      </view>
+      </navigator>
+    </block>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="navigation">
+  <navigator class="read" url="/pages/read/index?book_id={{book.id}}&type=new">立即阅读</navigator>
+</view>

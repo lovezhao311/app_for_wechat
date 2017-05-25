@@ -1,0 +1,9 @@
+<template name="banner">
+<swiper class="banner" indicator-dots="{{indicatordots}}" autoplay="{{autoplay}}">
+  <block wx:for="{{lists}}">
+    <swiper-item>
+      <image src="{{item}}" mode="center"/>
+    </swiper-item>
+  </block>
+</swiper>
+</template>

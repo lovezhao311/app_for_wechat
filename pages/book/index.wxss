@@ -1,0 +1,65 @@
+/* pages/book/index.wxss */
+
+.header-top{
+  height: 280rpx;
+  background-color: #120c0c;
+  box-sizing: border-box;
+  padding: 20rpx;
+  flex-direction: row;
+  display: flex;
+}
+.header-top .image{
+  height: 240rpx;
+  width: 180rpx;
+  flex-basis:200rpx;
+}
+.header-top .image image{
+  border-radius: 10rpx;
+}
+.header-top .desc{
+   flex:1;
+   color: #fff;
+}
+.header-top .desc view{
+  line-height: 36rpx;
+}
+.header-top .desc .footer-right-tag{
+  padding:0 10rpx;
+  position: relative;
+}
+.header-top .desc .footer-right-tag:first-child{
+  padding-left: 0px;
+}
+.header-top .desc .footer-right-tag::after{
+  content: "|";
+  position: absolute;
+  right: -3rpx;
+}
+.header-top .desc .footer-right-tag:last-child::after{
+  content: "";
+}
+.header-top .desc .header{
+  font-size: 32rpx;
+  line-height: 60rpx;
+  color:#f7f7f7;
+}
+/* 底部导航 */
+.navigation {
+  height: 100rpx;
+  width: 100%;
+  position: absolute;
+  bottom:0px;
+  background-color: white;
+}
+.navigation .read{
+  background-color: red;
+  border-radius: 0;
+  color: #fff;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  font-weight: 200;
+  text-align:center;
+  display: block;
+  margin: 0 auto;
+  padding: 0 40rpx;
+}
