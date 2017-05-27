@@ -1,0 +1,4 @@
+/* pages/wecome/index.wxss */
+.container{
+  background-color: #fff;
+}

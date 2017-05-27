@@ -4,12 +4,12 @@
   <navigator url="/pages/book/index?id={{item.id}}">
   <view class="item" >
       <view class="image">
-        <image mode="aspectFill" src="{{item.image}}"></image>
+        <image binderror="imageError" mode="aspectFill" src="{{ data.path }}{{item.image}}"></image>
       </view>
       <view class="desc">
         <view class="header"><text>{{item.name}}</text></view>
         <view class="center">
-          <text>{{item.remark}}</text>
+          <view>{{item.remark}}</view>
         </view>
         <view class="footer">
           <view class="footer-left">

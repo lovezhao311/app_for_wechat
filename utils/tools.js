@@ -542,6 +542,12 @@ class tools {
     }
     return url
   }
+  /**
+   * 是否有效的手机号码
+   */
+  isPhone(value) {
+    return /^1[3|4|5|8][0-9]\d{4,8}$/.test(value);
+  }
 }
 
 export default tools

@@ -32,10 +32,11 @@ class logs extends Service{
     });
   }
   // 记录阅读情况
-  book_history(book_id, chapter_id, scroll_top){
+  book_history(book_id, chapter_id, name, scroll_top){
     var key = 'book_history_'+book_id;
     var record = {
       chapter_id: chapter_id,
+      name:name,
       scroll_top: scroll_top,
       time: Date.now()
     };
@@ -58,6 +59,32 @@ class logs extends Service{
       
     }
     return false;
+  }
+  // 获取tokey
+  get_tokey(){
+    try {
+      var value = this.getStorageSync('client_tokey');
+      if (value) {
+        return value;
+      }
+    } catch (e) {
+
+    }
+    return false;
+  }
+  // 设置tokey
+  set_tokey(value){
+    try {
+      this.setStorageSync('client_tokey', value);
+    } catch (e) {
+    }
+  }
+  // 接口调用错误
+  error(msg='系统错误' , type = 'interface'){
+    var page = '/pages/error/interface/index';
+    this.navigateTo(page, {
+      msg:msg
+    });
   }
 
 }

@@ -1,0 +1,10 @@
+<!--pages/wecome/index.wxml-->
+<view class="page-error">
+  <view class="error-avatar">
+    <image src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="error-title">{{userInfo.nickName}}</view>
+  <view class="error-msg">
+      加载中...
+  </view>
+</view>

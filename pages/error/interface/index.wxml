@@ -1,0 +1,6 @@
+<!--pages/error/interface/index.wxml-->
+<view class="page-error">
+  <view class="error-avatar"><image src="../../../assets/images/error.jpg"></image></view>
+  <view class="error-title">出错了 -:(</view>
+  <view class="error-msg">{{error}}</view>
+</view>

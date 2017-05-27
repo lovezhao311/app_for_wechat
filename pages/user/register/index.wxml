@@ -1,0 +1,31 @@
+<!--pages/error/interface/index.wxml-->
+<view class="page-error">
+  <view class="error-avatar">
+    <image src="{{userInfo.avatarUrl}}"></image>
+  </view>
+  <view class="error-title">{{userInfo.nickName}}</view>
+  <view class="error-msg">
+    <form bindsubmit="formSubmit">
+      <view class="from-section {{valdate.phone}}">
+        <label for="phone" class="label-section item-section">手机号码</label>
+        <input placeholder-class="placeholder-section"  placeholder="手机号码" name="phone" class="input-section item-section" type="number" bindinput="bindphone" maxlength="11" focus id="phone" />
+        <view class="label-section item-section" bindtap="sendphone">发送验证</view>
+      </view>
+      <view class="from-section {{valdate.validate}}">
+        <label for="validate" class="label-section item-section">手机验证</label>
+        <input placeholder-class="placeholder-section" placeholder="手机验证" name="validate" class="input-section item-section" value="{{form.validate}}" maxlength="6" type="number" id="validate" />
+      </view>
+      <view class="from-section {{valdate.password}}">
+        <label for="password" class="label-section item-section">密码</label>
+        <input placeholder-class="placeholder-section"  placeholder="******" name="password" class="input-section item-section" password="true" id="password" />
+      </view>
+      <view class="from-section {{valdate.confirm_password}}">
+        <label for="confirm_password" class="label-section item-section">确认密码</label>
+        <input placeholder-class="placeholder-section"  placeholder="******" name="confirm_password" class="input-section item-section" password="true" id="confirm_password" />
+      </view>
+      <view class="from-section">
+        <button formType="submit" type="primary" class="botton-section">提交</button>
+      </view>
+    </form>
+  </view>
+</view>

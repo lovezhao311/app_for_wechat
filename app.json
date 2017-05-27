@@ -1,7 +1,12 @@
 {
-  "pages":[
+  "pages":[   
+    "pages/wecome/index",
+    "pages/index/index",
     "pages/book/index",
-    "pages/read/index"
+    "pages/read/index",
+    "pages/user/register/index",
+    "pages/error/interface/index",
+    "pages/error/network/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

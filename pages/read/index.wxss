@@ -19,7 +19,7 @@
   text-align: center;
   height: 100%;
 }
-.navigation > navigator{
+.navigation > navigator,.navigation > view{
   width: 33%;
   display: inline-block;
   text-align: center;

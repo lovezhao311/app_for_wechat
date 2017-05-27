@@ -1,12 +1,16 @@
 <!--pages/read/index.wxml-->
+<import src="/template/chapter_content.wxml"/>
+
 <scroll-view class="container" scroll-y="true" bindscroll="scroll" scroll-top="{{page.scrollTop}}">
 <view class="box">
-    <view wx:if="{{chapter.id == 0}}" class="box-body-center"> {{chapter.conter}} </view>
-    <view class="box-body" wx:else> {{chapter.conter}} </view>
+    <view wx:if="{{chapter.id == 0}}" class="box-body-center"> {{chapter.content}} </view>
+    <view class="box-body" wx:else> 
+      <template is="chapter_content" data="{{...chapter}}"/>
+    </view>
   </view>
 </scroll-view>
 <view class="navigation">
-  <navigator class="lastpage">上一章</navigator>
-  <navigator class="catalog">目录</navigator>
-  <navigator class="nextpage">下一章</navigator>
+  <view class="lastpage" bindtap="lastpage">上一章</view>
+  <navigator class="catalog" url="/pages/book/index?id={{chapter.book_id}}">目录</navigator>
+  <view class="nextpage" bindtap="nextpage">下一章</view>
 </view>

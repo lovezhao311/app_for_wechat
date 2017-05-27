@@ -31,7 +31,6 @@ class service {
     that.instanceSource = {
       method: Object.keys(wx)
     }
-
     // 遍历wx方法对象，判断是否为异步方法，是则构造promise
     for (let key in that.instanceSource) {
       that.instanceSource[key].forEach(function (method) {

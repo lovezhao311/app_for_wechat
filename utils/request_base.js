@@ -1,5 +1,6 @@
 import __config from '../config/config'
 import es6 from '../assets/plugins/es6-promise'
+import Logs from './logs';
 
 class request_base {
   constructor() {
@@ -65,7 +66,6 @@ class request_base {
   __defaultRequest(method = '', url = '', params = {}) {
     const $$header = this.setHeaders()
     const $$url = `${this.$$basePath}${this.$$prefix}${url}`
-
     return function (resolve, reject) {
       wx.request({
         url: $$url,
@@ -90,7 +90,7 @@ class request_base {
     return {
       'Accept': 'application/json', 
       'Content-type': 'application/json', 
-      'Authorization': 'Bearer ' + wx.getStorageSync('token'),
+      'Authorization': 'Bearer ' + (new Logs).get_tokey('client_tokey'),
     }
   }
 }
