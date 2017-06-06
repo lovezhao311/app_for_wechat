@@ -1,0 +1,44 @@
+<!--pages/cate/index.wxml-->
+<import src="/template/footer.wxml"/>
+<import src="/template/book_list.wxml"/>
+
+<view class="page-container">
+  <scroll-view class="left-container" scroll-y="true">
+    <view class="cate-list">
+      <block wx:if="{{option.id == 0}}">
+        <view bindtap="tags_book" class="item this" data-id="0">全部</view>
+      </block>
+      <block wx:else>
+        <view bindtap="tags_book" class="item" data-id="0">全部</view>
+      </block>
+      <block wx:for="{{cateLists}}">
+      <block wx:if="{{option.id == item.id}}">
+      <view class="item this">
+        <view bindtap="tags_book" data-id="{{item.id}}">{{item.name}}</view>
+      </view>
+      </block>
+      <block wx:else>
+        <view class="item">
+          <view bindtap="tags_book" data-id="{{item.id}}">{{item.name}}</view>
+        </view>
+      </block>
+      </block>
+    </view>
+  </scroll-view>
+
+  <scroll-view class="right-container" scroll-y="true" bindscrolltolower="load_more">
+    <view class="box">
+      <template is="book_list" data="{{...bookList}}"/>
+    </view>
+    <view wx:if="{{hasRefesh}}" class="scroll-more">
+        <view class="wx-loading1 wx-iconfont"></view>
+        加载中...
+    </view>
+    <view wx:if="{{lastPage}}" class="scroll-more">
+        加载完毕...
+    </view>
+    
+  </scroll-view>
+</view>
+
+<template is="footer" data="{{is:'cate'}}"/>

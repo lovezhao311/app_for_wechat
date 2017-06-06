@@ -12,9 +12,7 @@
       <view class="read" wx:if="{{book.read.name}}">已读至: <text>{{book.read.name}}</text></view>
       <view wx:else>未读</view>
       <view class="tags">
-        <block wx:for="{{book.tags}}">
-        <text class="footer-right-tag">{{item}}</text>
-        </block>
+        <text class="footer-right-tag">{{book.tag_name}}</text>
       </view>
     </view>
   </view>
@@ -34,8 +32,8 @@
       <view class="more" bindtap="chapter_order">倒序</view>
     </view>
     <view class="chapter_list">
-    <block wx:for="{{book.chpaters.data}}">
-      <navigator class="read" url="/pages/read/index?book_id={{book.id}}&type=chapter&id={{item.id}}">
+    <block wx:for="{{book.chpaters}}">
+      <navigator class="read" url="/pages/read/index?key={{index}}&book_id={{book.id}}">
       <view class="item">
         <view class="title">{{item.name}}</view>
         <view class="time">{{item.create_time}}</view>

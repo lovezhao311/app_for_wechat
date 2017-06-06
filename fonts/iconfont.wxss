@@ -30,3 +30,5 @@
 .wx-faxian:before { content: "\e633"; }
 
 .wx-jingpin:before { content: "\e658"; }
+
+.wx-loading1:before { content: "\e639"; }

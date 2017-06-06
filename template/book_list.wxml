@@ -1,10 +1,10 @@
 <template name="book_list">
 <view class="box-list">
-<block wx:for="{{lists}}">
+<block wx:for="{{data}}">
   <navigator url="/pages/book/index?id={{item.id}}">
   <view class="item" >
       <view class="image">
-        <image binderror="imageError" mode="aspectFill" src="{{ data.path }}{{item.image}}"></image>
+        <image binderror="imageError" mode="aspectFill" src="{{item.image}}"></image>
       </view>
       <view class="desc">
         <view class="header"><text>{{item.name}}</text></view>
@@ -15,9 +15,7 @@
           <view class="footer-left">
             <text class="wx-iconfont wx-zuozhe"></text><text>{{item.author_name}}</text>     
           </view>
-          <block wx:for="{{item.tags}}" wx:for-item="tag">
-          <view class="footer-right-tag">{{tag}}</view>
-          </block>
+          <view class="footer-right-tag">{{item.tag_name}}</view>
           <view class="clear"></view>
         </view>
       </view>

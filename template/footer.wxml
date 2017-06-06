@@ -2,22 +2,36 @@
 <template name="footer">
 <view class="navigation flex-wrp">
   <view class="item">
-    <navigator url="" class="this" hover-class="none">
+    <navigator url=""  hover-class="none" open-type="redirect">
       <text class="wx-iconfont wx-index"></text>
     </navigator>
   </view>
   <view class="item">
-    <navigator url="" hover-class="none">
+    <block wx:if="{{is == 'index'}}"> 
+    <navigator url="/pages/index/index" class="this" hover-class="none" open-type="redirect">
       <text class="wx-iconfont wx-jingpin"></text>
     </navigator>
+    </block> 
+    <block wx:else> 
+    <navigator url="/pages/index/index" hover-class="none" open-type="redirect">
+      <text class="wx-iconfont wx-jingpin"></text>
+    </navigator>
+    </block> 
   </view>
   <view class="item">
-    <navigator url="" hover-class="none">
+    <block wx:if="{{is == 'cate'}}"> 
+    <navigator url="/pages/cate/index" class="this" hover-class="none" open-type="redirect">
       <text class="wx-iconfont wx-faxian"></text>
     </navigator>
+    </block> 
+    <block wx:else> 
+    <navigator url="/pages/cate/index" hover-class="none" open-type="redirect">
+      <text class="wx-iconfont wx-faxian"></text>
+    </navigator>
+    </block> 
   </view>
   <view class="item">
-    <navigator url="" hover-class="none">
+    <navigator url="" hover-class="none" open-type="redirect">
       <text class="wx-iconfont wx-wo"></text>
     </navigator>
   </view>

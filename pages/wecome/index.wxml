@@ -5,6 +5,9 @@
   </view>
   <view class="error-title">{{userInfo.nickName}}</view>
   <view class="error-msg">
-      加载中...
+    <view class="scroll-more">
+        <view class="wx-loading1 wx-iconfont"></view>
+        加载中...
+    </view>
   </view>
 </view>

@@ -264,3 +264,17 @@ page{
   box-sizing: border-box;
   padding-bottom: 60rpx;
 }
+/* 加载中 */
+.scroll-more{
+  height: 50rpx;
+}
+
+.wx-loading1{
+  display: inline-block;
+  margin-right: 10rpx;
+  -webkit-animation:circle 1s infinite linear;
+}
+@-webkit-keyframes circle{
+0%{ transform: rotate(0deg); }
+100%{ transform: rotate(360deg); }
+}

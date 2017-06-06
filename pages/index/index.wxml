@@ -17,7 +17,7 @@
 
   <view class="box">
     <view class="box-header">
-      <view class="title">主编力荐</view>
+      <view class="title">新书力荐</view>
       <view class="more">更多 > </view>
     </view>
     <template is="book_list" data="{{...new}}"/>
@@ -25,7 +25,7 @@
 
   <view class="box">
     <view class="box-header">
-      <view class="title">新书强推</view>
+      <view class="title">热门强推</view>
       <view class="more">更多 > </view>
     </view>
     <template is="book_list" data="{{...recomm}}"/>
@@ -41,4 +41,4 @@
 
 </scroll-view>
 
-<template is="footer"/>
+<template is="footer" data="{{is:'index'}}"/>

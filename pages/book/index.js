@@ -18,7 +18,7 @@ Page({
       book_chapter_name:'',
       image:"",
       tags:[],
-      chpaters:[],
+      chapters:[],
       read:{}
     },
     option:{}
@@ -32,13 +32,16 @@ Page({
   // 页面显示
   onShow() {
     this.getDetail();
+    this.hasUpdate();
   },
+
   // 章节列表排序
   chapter_order(event){
-    var chapters = this.data.book.chpaters;
+    var chapters = this.data.book.chpaters.data;
+    console.log(chapters);
     chapters.reverse();
     this.setData({
-      "book.chpaters": chapters.data
+      "book.chpaters.data": chapters
     });
   },
   // 阅读
@@ -46,32 +49,53 @@ Page({
     var page = App.Logs.get_book_history(this.data.option.id);
     var option = {
       book_id: this.data.option.id,
-      type: 'chapter',
-      id: 0
+      key: 0
     };
     if(page != false){
-      option.id = page.chapter_id;
+      option.key = page.key;
     }
-
     App.Logs.navigateTo('/pages/read/index', option);
   },
+  // 获取书籍资料
   getDetail(){
     // 书籍资料
-    App.Request.bookDetail(this.data.option).then(data => {
+    App.Request.bookDetail(this.data.option).then(result => {
+      var data = result.data;
       this.setData({
-        book: data.data
+        book: data
       });
+      // 设置阅读记录
       this.setData({
         "book.read": App.Logs.get_book_history(this.data.option.id)
       });
+      // 是否有更新
+      var cache = App.Logs.get_book(data.id);
+      if(cache.book_chapter_id == data.book_chapter_id){
+        var chapters = App.Logs.get_book_chapters(data.id);
+        this.setData({
+          'book.chpaters': chapters
+        });
+      }else{
+        // 保存书籍信息
+        App.Logs.set_book(data);
+
+        // 获取章节目录
+        App.Request.bookChapter({
+          id: data.id
+        }).then(e => {
+          this.setData({
+            'book.chpaters': e.data
+          });
+          App.Logs.set_book_chapters(data.id, e.data);
+        });
+      }
     });
-    // 章节目录
-    App.Request.bookChapter({
-      id: this.data.option.id
-    }).then(data => {
-      this.setData({
-        'book.chpaters': data.data
-      });
-    });
+  },
+  /**
+   * 是否有更新
+   */
+  hasUpdate(){
+    App.Request.checkUpdate(this.data.option).then(result => { });
+    // 验证书籍是否有更新
   }
 })

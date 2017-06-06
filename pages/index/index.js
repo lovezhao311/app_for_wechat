@@ -5,19 +5,19 @@ Page({
   data: {
     // 畅销精选
     best: {
-      lists:[]
+      data:[]
     },
     // 新书强推
     new: {
-      lists: []
+      data: []
     },
     // 主编力荐
     recomm: {
-      lists: []
+      data: []
     },
     // 经典完本
     end: {
-      lists: []
+      data: []
     },
     // banner
     banner: {
@@ -32,27 +32,35 @@ Page({
   },
   // 日志
   onShow(){
-    App.Request.bookList().then(data => {
+    App.Request.bookList({
+      type:3
+    }).then(data => {
       this.setData({
-          "best.lists": data.data
+          "best.data": data.data
       });
     });
 
-    App.Request.bookList().then(data => {
+    App.Request.bookList({
+      type: 1
+    }).then(data => {
       this.setData({
-        "new.lists": data.data
+        "new.data": data.data
       });
     });
 
-    App.Request.bookList().then(data => {
+    App.Request.bookList({
+      type: 2
+    }).then(data => {
       this.setData({
-        "recomm.lists": data.data
+        "recomm.data": data.data
       });
     });
 
-    App.Request.bookList().then(data => {
+    App.Request.bookList({
+      end_status:2
+    }).then(data => {
       this.setData({
-        "end.lists": data.data
+        "end.data": data.data
       });
     });
   }

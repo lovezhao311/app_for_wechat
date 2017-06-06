@@ -28,34 +28,59 @@ Page({
   },
   // 滚动 
   scroll(e){
-    App.Logs.book_history(this.data.chapter.book_id, this.data.chapter.id, this.data.chapter.name, e.detail.scrollTop);
+    App.Logs.book_history(this.data.chapter.book_id, this.data.option.key, this.data.chapter.name, e.detail.scrollTop);
   },
   // 下一章
   nextpage(){
+    var chapters = App.Logs.get_book_chapters(this.data.option.book_id);
     this.setData({
-      'option.type': "nextpage",
-      'option.id': this.data.chapter.id,
+      'option.key': parseInt(this.data.option.key) + 1,
     });
+    if (App.Tools.isUndefined(chapters[this.data.option.key].id)) {
+      // 错误 ...
+      return false;
+    }
     this.getDetail();
   },
   // 上一章
   lastpage() {
+    var chapters = App.Logs.get_book_chapters(this.data.option.book_id);
     this.setData({
-      'option.type': "lastpage",
-      'option.id': this.data.chapter.id,
+      'option.key': parseInt(this.data.option.key) - 1,
     });
+    if (App.Tools.isUndefined(chapters[this.data.option.key].id)) {
+      // 错误 ...
+      return false;
+    }
     this.getDetail();
   },
+
   // 获取章节内容
   getDetail(){
+    // 设置加载提示
     App.Logs.showLoading({
       title:'加载中..'
     });
-    App.Request.chapterDetail(this.data.option).then(data => {
+    
+    // 获取章节内容
+    var option = {
+      book_id: this.data.option.book_id,
+      id:0
+    };
+    //列表信息
+    var chapters = App.Logs.get_book_chapters(this.data.option.book_id);
+    if (App.Tools.isUndefined(chapters[this.data.option.key].id)){
+      // 错误 ... 
+      App.Logs.hideToast();
+      return false;
+    }
+    option.id = chapters[this.data.option.key].id;
+    App.Request.chapterDetail(option).then(data => {
       this.setDetail(data.data);
       App.Logs.hideToast();
     });
   },
+
   // 设置章节内容
   setDetail(detail){
     if (detail.content != null) {
@@ -73,12 +98,12 @@ Page({
     });
     // 缓存 记录
     var page = App.Logs.get_book_history(this.data.chapter.book_id);
-    if (page !== false && page.chapter_id == this.data.chapter.id) {
+    if (page !== false && page.key == this.data.option.key) {
       this.setData({
         "page.scrollTop": page.scroll_top
       });
     } else {
-      App.Logs.book_history(detail.book_id, detail.id, detail.name, 0);
+      App.Logs.book_history(detail.book_id, this.data.option.key, detail.name, 0);
       this.setData({
         "page.scrollTop": 0
       });

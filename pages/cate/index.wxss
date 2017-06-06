@@ -1,0 +1,45 @@
+/* pages/cate/index.wxss */
+.page-container{
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  box-sizing: border-box;
+  padding-bottom: 60rpx;
+}
+
+.left-container{
+  width: 120rpx;
+  background-color: #eff8f6;
+  flex-basis:120rpx;
+}
+
+.right-container{
+  flex:1;
+}
+.right-container .box{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+.cate-list{
+
+}
+
+.cate-list .item{
+  width: 100%;
+  text-align: center;
+  line-height: 70rpx;
+  height: 70rpx;
+  font-size: 20rpx;
+  box-sizing: border-box;
+}
+
+.cate-list .item.this{
+  border-left:4rpx #CC0000 solid;
+  background-color:#f9f4f4;
+}
+
+.scroll-more{
+  display: flex;flex-direction: row;align-items: center;align-self: center;justify-content: center;
+}

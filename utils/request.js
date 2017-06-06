@@ -10,7 +10,10 @@ class request extends request_base {
       bookList: 'book/index',
       bookDetail: 'book/detail',
       bookChapter: 'book/chapter',
-      chapterDetail: 'chapter/detail'
+      checkupdate: 'book/checkupdate',
+      chapterDetail: 'chapter/detail',
+      cateList: 'tags/list',
+      tagsDetail: 'tags/detail'
     }
   }
   // 登陆
@@ -33,10 +36,23 @@ class request extends request_base {
   bookChapter(params){
     return this.getRequest(this.$$path.bookChapter, params)
   }
+  // 书籍更新
+  checkUpdate(params){
+    return this.getRequest(this.$$path.checkupdate, params)
+  }
   // 章节内容
   chapterDetail(params){
     return this.getRequest(this.$$path.chapterDetail, params)
   }
+  // 分类tags列表
+  cateList(params){
+    return this.getRequest(this.$$path.cateList, params)
+  }
+  // tags 书籍
+  tagsDetail(params){
+    return this.getRequest(this.$$path.tagsDetail, params)
+  }
+  
 }
 
 export default request

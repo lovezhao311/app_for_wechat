@@ -32,10 +32,10 @@ class logs extends Service{
     });
   }
   // 记录阅读情况
-  book_history(book_id, chapter_id, name, scroll_top){
+  book_history(book_id, list_index, name, scroll_top){
     var key = 'book_history_'+book_id;
     var record = {
-      chapter_id: chapter_id,
+      key: list_index,
       name:name,
       scroll_top: scroll_top,
       time: Date.now()
@@ -85,6 +85,45 @@ class logs extends Service{
     this.navigateTo(page, {
       msg:msg
     });
+  }
+  // 设置书籍缓存
+  set_book(data){
+    try {
+      this.setStorageSync('book_' + data.id, data);
+    } catch (e) {
+    }
+  }
+  // 设置书籍缓存
+  get_book(id) {
+    try {
+      var value = this.getStorageSync('book_' + id);
+      if (value) {
+        return value;
+      }
+    } catch (e) {
+
+    }
+    return false;
+  }
+  // 设置书籍列表
+  set_book_chapters(id, chapters) {
+    try {
+      this.setStorageSync('book_chpaters_' + id, chapters);
+    } catch (e) {
+    }
+    return false;
+  }
+  // 获取书籍列表
+  get_book_chapters(id){
+    try {
+      var value = this.getStorageSync('book_chpaters_'+id);
+      if (value) {
+        return value;
+      }
+    } catch (e) {
+
+    }
+    return false;
   }
 
 }

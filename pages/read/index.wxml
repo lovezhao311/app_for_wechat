@@ -11,6 +11,6 @@
 </scroll-view>
 <view class="navigation">
   <view class="lastpage" bindtap="lastpage">上一章</view>
-  <navigator class="catalog" url="/pages/book/index?id={{chapter.book_id}}">目录</navigator>
+  <navigator class="catalog" open-type="navigateBack">目录</navigator>
   <view class="nextpage" bindtap="nextpage">下一章</view>
 </view>
